@@ -427,6 +427,7 @@ enum SupportedModules {
   EXS_DIMMER,
   PWM_DIMMER,
   SONOFF_D1,
+  CELEON_AIO,
   MAXMODULE};
 
 #define USER_MODULE        255
@@ -810,6 +811,7 @@ const uint8_t kGpioNiceList[] PROGMEM = {
 };
 
 const uint8_t kModuleNiceList[] PROGMEM = {
+  CELEON_AIO,
   SONOFF_BASIC,        // Sonoff Relay Devices
   SONOFF_RF,
   SONOFF_TH,
@@ -2272,6 +2274,26 @@ const mytmplt kModules[MAXMODULE] PROGMEM = {
      0,                // GPIO12
      GPIO_LED1_INV,    // GPIO13 WiFi Blue Led - Link and Power status
      0, 0, 0, 0
+  },
+  { "Celeon AiO",         // WEMOS - Any ESP8266/ESP8285 device like WeMos and NodeMCU hardware (ESP8266)
+     GPIO_USER,        // GPIO00 D3 Wemos Button Shield
+     GPIO_USER,        // GPIO01 TX Serial RXD
+     GPIO_KEY1,        // GPIO02 D4 Wemos DHT Shield
+     GPIO_USER,        // GPIO03 RX Serial TXD and Optional sensor
+     GPIO_IRRECV,        // GPIO04 D2 Wemos I2C SDA
+     GPIO_REL1,        // GPIO05 D1 Wemos I2C SCL / Wemos Relay Shield (0 = Off, 1 = On) / Wemos WS2812B RGB led Shield
+                       // GPIO06 (SD_CLK   Flash)
+                       // GPIO07 (SD_DATA0 Flash QIO/DIO/DOUT)
+                       // GPIO08 (SD_DATA1 Flash QIO/DIO/DOUT)
+     GPIO_USER,        // GPIO09 (SD_DATA2 Flash QIO or ESP8285)
+     GPIO_USER,        // GPIO10 (SD_DATA3 Flash QIO or ESP8285)
+                       // GPIO11 (SD_CMD   Flash)
+     GPIO_USER,        // GPIO12 D6
+     GPIO_IRSEND,        // GPIO13 D7
+     GPIO_DHT22,        // GPIO14 D5
+     GPIO_LED1,        // GPIO15 D8
+     GPIO_USER,        // GPIO16 D0 Wemos Wake
+     ADC0_USER         // ADC0 A0 Analog input
   }
 };
 
